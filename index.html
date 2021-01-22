@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-48552499-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-48552499-1');
+</script>
+  <meta charset="utf-8"/>
+  <title>Anton Lecock—Graphic Design + Development</title>
+  <link href='https://fonts.googleapis.com/css?family='Roboto':400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'Bagnard';
+      src: url('Bagnard.otf');
+    } 
+
+    body {
+      padding:0;
+      margin:0;
+      background-color:#DEDEDE;
+      font-family: 'Roboto', Helvetica, arial, sans-serif;
+      color:#404040;
+
+      -webkit-font-smoothing: antialiased;
+         -moz-font-smoothing: antialiased;
+           -o-font-smoothing: antialiased;
+              font-smoothing: antialiased;
+    }
+    canvas { 
+      width: 100%; 
+      height: 100%;
+      position:fixed;
+/*      -webkit-filter: blur(2px);
+           -o-filter: blur(2px);
+         -moz-filter: blur(2px);
+              filter: blur(2px);*/
+    }
+
+    ul, li {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .nl {
+      display:none;
+    }
+
+    .lang-switch {
+      position:fixed;
+      top: 2rem;
+      left: 2rem;
+      font-size: 12px;
+      letter-spacing: 1px;
+      padding-bottom:2px;
+      border-bottom: 1px solid #404040;
+      cursor: pointer;
+      z-index: 10;
+      -webkit-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+         -moz-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+          -ms-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+           -o-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+              transition:color .25s ease .1s, border-bottom .25s ease .1s;
+    }
+
+    .lang-switch:hover, .lang-switch:active {
+      border-bottom: 1px solid #788fd4;
+      color:#788fd4;
+    }
+
+    a:link, a:visited, a {
+      color:#DEDEDE;
+      text-decoration: none;
+    }
+
+    .transparant {
+      opacity:0;
+    }
+
+    .hidden {
+      display:none;
+    }
+
+    .landing {
+      position:absolute;
+      display:block;
+      top:0;
+      width:100%;
+      height:100%;
+    }
+
+    .top-band {
+      position:fixed;
+      width:100%;
+      height:10px;
+      top:0;
+      background-color: #DEDEDE;
+      z-index:999999;
+    }
+
+    .header {
+      position:relative; 
+      top: 33%; 
+      width:100%; 
+      background: none;
+    }
+
+    h1 {
+      position:relative; 
+      max-width: 500px; 
+      margin: 0 auto; 
+      text-align: center; 
+      font-family: 'Bagnard', times, serif; 
+      font-size: 70px; 
+      font-weight:100;
+      line-height:70px;
+    }
+
+    .subtitle {
+      text-transform: uppercase;
+      letter-spacing: 2.5px; 
+      position:relative; 
+      max-width: 500px; 
+      margin: 0 auto; 
+      text-align: center; 
+    }
+
+    h3 { 
+      margin: 2px 0;
+      font-size:22px; 
+      font-weight:100;
+    }
+
+    h3 span {
+      -webkit-transition:color .25s ease .1s;
+         -moz-transition:color .25s ease .1s;
+          -ms-transition:color .25s ease .1s;
+           -o-transition:color .25s ease .1s;
+              transition:color .25s ease .1s;
+    }
+
+    h3 span:hover, span.also:hover {
+      color:#788fd4;
+      cursor: pointer;
+    }
+
+    span.also {
+      font-size:10px;
+      color: ;
+      -webkit-transition: color .25s ease .1s;
+         -moz-transition: color .25s ease .1s;
+          -ms-transition: color .25s ease .1s;
+           -o-transition: color .25s ease .1s;
+              transition: color .25s ease .1s;
+    }
+
+    span.also:hover {
+      display:inline;
+      padding-bottom:20px;
+    }
+
+    svg.downarrow {
+      position:fixed;
+      width:40px;
+      bottom:40px;
+      display:block;
+      z-index:999;
+    }
+
+    .downarrow:hover {
+      cursor: pointer;
+    }
+
+    .downarrow:hover .shape {
+      stroke: #788fd4;
+      stroke-width:1.6px;
+      transform: translateY(-4px);
+    }
+
+    .downarrow .shape {
+      stroke-width:1.2px; 
+      stroke: #404040; 
+      fill:none;
+      -webkit-transition:stroke .25s ease .1s, transform .25s ease .1s, stroke-width .25s ease .1s;
+         -moz-transition:stroke .25s ease .1s, transform .25s ease .1s, stroke-width .25s ease .1s;
+          -ms-transition:stroke .25s ease .1s, transform .25s ease .1s, stroke-width .25s ease .1s;
+           -o-transition:stroke .25s ease .1s, transform .25s ease .1s, stroke-width .25s ease .1s;
+              transition:stroke .25s ease .1s, transform .25s ease .1s, stroke-width .25s ease .1s;
+    }
+
+    .kader {
+      position:fixed; 
+      z-index: -6; 
+      width: 100%; 
+      height: 100%; 
+/*      background:#DEDEDE; 
+*/      box-sizing: border-box; 
+      border-bottom: 10px solid #404040;
+    }
+
+    /* POP-UP*/
+
+    .popup {
+      display:none;
+      max-width: 300px;
+      height: 150px;
+      background-color: #404040;
+      color:#DEDEDE;
+      padding:1rem;
+      padding-top:0;
+      position:fixed;
+      top:55%;
+      left:50%;
+      border-radius: 5px;
+      margin-left:-150px;
+      margin-top:-70px;
+      box-sizing: border-box;
+    }
+
+    .popup svg {
+      fill: #404040;
+      stroke: none;
+      position:fixed;
+      left:50%;
+      margin-left:-15px;
+    }
+
+    .popup .gd-svg {
+      transform: translate(-100px, -30px);
+    }
+
+    .popup .dev-svg {
+      transform: translate(100px, -30px);
+    }
+
+    .popup .link {
+      font-weight:400;
+      letter-spacing: 2px;
+      font-size:14px;
+      text-transform: uppercase;
+      padding-bottom:3px;
+      border-bottom:1px solid #DEDEDE;
+      cursor:pointer;
+      -webkit-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+         -moz-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+          -ms-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+           -o-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+              transition:color .25s ease .1s, border-bottom .25s ease .1s;
+    }
+
+    .popup .link:hover, .popup .link:active {
+      color: #788fd4;
+      border-bottom: 1px solid #788fd4;
+    }
+
+    /*PORTFOLIO*/
+
+    .portfolio {
+      position:absolute;
+      font-family: 'Bagnard', georgia, serif;
+      font-size:20px;
+      text-align: center;
+      width:100%;
+      color:#DEDEDE;
+      top:100px;
+    }
+
+    .portfolio h4 {
+      font-family:'Roboto', helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      font-size:34px;
+      font-weight:100;
+      margin:1em 1em 2em 1em;
+    }
+
+    .portfolio .underline {
+      padding-bottom: 1px;
+      border-bottom: 1px solid #DEDEDE;
+    }
+
+/*    .portfolio .contact a:hover, .portfolio .contact a:active {
+      color: #788fd4;
+      border-bottom: 2px solid #788fd4;
+    }*/
+
+    .portfolio .work-list {
+      display:inline-block;
+      width:850px;
+      margin: 0 auto;
+    }
+
+    .portfolio .work-list .work {
+      text-align: left;
+      padding-bottom: 1rem;
+      margin-bottom: 5rem;
+    } 
+
+    .portfolio .work-list img {
+      box-shadow: 0 8px 6px -6px rgba(0,0,0,.4);
+      max-width: 850px
+      width:850px;
+      display:block;
+      margin:0 auto 1rem auto;
+    }
+
+    .portfolio .work-title {
+      max-width:600px;
+      margin: 0 auto 1rem auto;
+    }
+
+    .portfolio .work-expl {
+      font-family: 'Roboto', helvetica, sans-serif;
+      font-size:16px;
+      font-weight:400;
+      line-height:20px;
+      max-width:600px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .portfolio a {
+      border-bottom:1px solid #DEDEDE;
+      cursor:pointer;
+      -webkit-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+         -moz-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+          -ms-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+           -o-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+              transition:color .25s ease .1s, border-bottom .25s ease .1s;
+    }
+
+    .portfolio a:hover, .portfolio a:active {
+      color: #788fd4;
+      border-bottom: 1px solid #788fd4;
+    }
+
+    .portfolio .about {
+      margin-bottom:4rem;
+    }
+
+    .portfolio .about p {
+      font-family: 'Roboto', helvetica, sans-serif;
+      font-size:16px;
+      font-weight:400;
+      line-height:22px;
+      max-width:600px;
+      margin: 0 auto 1rem auto;
+      text-align: left;
+    }
+
+    .portfolio .contact{
+      margin-top: 4rem;
+      margin-bottom: 6rem;
+      font-size: 20px;
+    }
+
+    .portfolio .contact p {
+      max-width:600px;
+      margin:0 auto;
+    }
+
+    .portfolio .contact a {
+      -webkit-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+         -moz-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+          -ms-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+           -o-transition:color .25s ease .1s, border-bottom .25s ease .1s;
+              transition:color .25s ease .1s, border-bottom .25s ease .1s;
+      border-bottom: 2px solid #DEDEDE;
+    }
+
+    .portfolio .contact a:hover, .portfolio .contact a:active {
+      border-bottom: 2px solid #788fd4;
+      color: #788fd4;
+    }
+
+    .portfolio .copyright {
+      font-family: 'Roboto', helvetica, sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight:300;
+      width: 360px;
+      text-align: center;
+      letter-spacing: 1px;
+      margin: 20px auto 100px auto;
+    }
+
+  </style>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <span class="lang-switch button" id="lang-switch">
+    NL
+  </span>
+  <div class="landing">  
+    <div class="header" id="header">
+      <h1>
+        Anton Lecock
+      </h1>
+      <div class="subtitle">
+        <h3>
+            <span class="gd-subtitle" id="gd-subtitle">
+              Information Design
+            </span> + <span class="dev-subtitle" id="dev-subtitle">
+              Development
+            </span>
+        </h3>
+        <span id="comets" class="also transparant">
+            <span class="en en-inl-blk">(+ Heavenly bodies!)</span>
+            <span class="nl nl-inl-blk">(+ Hemellichamen!)</span>
+        </span>
+      </div>
+    </div>
+    <div class="gd popup transparant" id="gd">
+      <svg id="gd-svg" class="gd-svg" width="30" height="30">
+        <polygon id="gd-polygon" class="gd-polygon shape" points="0,30 15,15 30,30"/></polyline>
+      </svg>
+      <p class="en en-inl-blk">
+        I'm an information designer. Functionality, honesty and an uncoined curiosity are key factors in what I do.
+      </p>
+      <p class="nl nl-inl-blk">
+        Ik ben een information designer. Functionaliteit, eerlijkheid en een bevlogen nieuwsgierigheid liggen aan de basis van wat ik doe.
+      </p>
+      <span class="link en en-inl-blk to-work">Really</span>
+      <span class="link nl nl-inl-blk to-work">Echt waar</span>
+    </div>
+    <div class="dev popup transparant" id="dev">
+      <svg id="dev-svg" class="dev-svg" width="30" height="30">
+        <polygon id="dev-polygon" class="dev-polygon shape" points="0,30 15,15 30,30"/></polygon>
+      </svg>
+      <p class="en en-inl-blk">
+        I'm a web developer. I'm not scared of a little programming and enjoy building websites. 
+      </p>
+      <p class="nl nl-inl-blk">
+        Ik ben een webontwikkelaar. Ik ben niet vies van programmeren en van het bouwen van websites. 
+      </p>
+      <span class="link en en-inl-blk to-work">Possibly</span>
+      <span class="link nl nl-inl-blk to-work">Mogelijks</span>
+    </div>
+  </div>
+  <svg id="downarrow" class="downarrow" width="40" height="40">
+    <g class="group downarrow-group">
+      <circle id="circle" class="circle shape" cx="20" cy="20" r="15"/></circle>
+      <polyline id="polyline" class="polyline shape" points="12,17 20,25 28,17"/></polyline>
+    </g>
+  </svg>
+  <div id="portfolio" class="portfolio hidden transparant">
+    <h4>
+      Portfolio
+    </h4>
+    <ul class="work-list">
+      <li class="work work-1">
+        <p class="en en-blk work-title work-title-1">
+          Visual Explanations of Astronomical Phenomena <span class="date">(2016)</span>
+        </p>
+        <p class="nl nl-blk work-title work-title-1">
+          Visual Explanations of Astronomical Phenomena <span class="date">(2016)</span>
+        </p>
+        <p class="en en-blk work-expl work-expl-1">
+          Research project originally started in the context of pursuing my master's degree Media & Information Design at LUCA School of Arts (2016), where I tried to look for ways to visually explain astronomical phenomena to a broad public by creating interactive data visualizations. The focus lies on the accessability, interactivity, scientific accuracy and the honest feeling of wonder about the universe. I graduated with this project in 2016, magna cum laude. <a class="work-link underline" href="http://antonlecock.github.io/masterproject/hub/" target="_blank">Learn more</a>.
+        </p>
+        <p class="nl nl-blk work-expl work-expl-1">
+          Onderzoeksproject in het kader van de masteropleiding Media & Information Design aan LUCA School of Arts (2016), waarbij ik aan de hand van interactieve datavisualisaties zocht naar manieren waarop astronomische fenomenen grafisch voorgesteld kunnen worden aan een breed publiek. De nadruk ligt op toegankelijkheid, interactiviteit, wetenschappelijke correctheid en verwondering over de kosmos. Ik studeerde af met dit project in 2016, magna cum laude. <a class="work-link underline" href="http://antonlecock.github.io/masterproject/hub/" target="_blank">Leer meer</a>.
+        </p>
+        <img class="work-img work-img-1 work-img-1-a" src="img/master-2.jpg">
+        <img class="work-img work-img-1 work-img-1-b" src="img/master-1.jpg">
+      </li> 
+      <li class="work work-4">
+        <p class="en en-blk work-title work-title-4">
+          Het Grote Ontwerp <span class="date">(2015)</span>
+        </p>
+        <p class="nl nl-blk work-title work-title-4">
+          Het Grote Ontwerp <span class="date">(2015)</span>
+        </p>
+        <p class="en en-blk work-expl work-expl-4">
+          Het Grote Ontwerp is the end result of a research period, completed together with <a href="http://snerkone.be/" target="_blank">Jonas Denil</a>, in the context of our bachelor's project in Graphic Design at LUCA School of Arts (Sint-Lukas Brussels). The project tries to provide an answer to the urgent question for more cooperation between municipalities and their inhabitants, during discussions about the evolution of their city. <a class="work-link underline" href="http://antonlecock.be/hetgroteontwerp/" target="_blank">Learn more</a>.
+        </p>
+        <p class="nl nl-blk work-expl work-expl-4">
+          Het Grote Ontwerp is het resultaat van een onderzoek dat ik samen met Jonas Denil voerde, in het kader van ons bachelorproject van de opleiding Grafisch Ontwerp aan LUCA School of Arts (Sint-Lukas Brussel). Het project tracht een antwoord te bieden op de steeds prangendere vraag naar meer samenwerking tussen stadsbesturen en hun inwoners tijdens discussies over de evolutie van hun stad. <a class="work-link underline" href="http://antonlecock.be/hetgroteontwerp/" target="_blank">Leer meer</a>.
+        </p>
+        <img class="work-img work-img-4 work-img-4-a" src="img/hgo-1.jpg">
+        <img class="work-img work-img-4 small work-img-4-b" src="img/hgo-2.jpg">
+      </li>
+      <li class="work work-4">
+        <p class="en en-blk work-title work-title-4">
+          Share <span class="date">(2014)</span>
+        </p>
+        <p class="nl nl-blk work-title work-title-4">
+          Share <span class="date">(2014)</span>
+        </p>
+        <p class="en en-blk work-expl work-expl-4">
+          Share is a fictional online platform that could provide users with the possibility to strengthen their community and neighborhood. The main feature of the application is the ability to request and share materials, entertainment and knowledge. Correspondance through the app is limited, as the main purpose was to get people together again, and away from their screens. This project is nothing more than the result of a long period of research and development on usability and user-experience design in our current virtual society. <a class="work-link underline" href="http://antonlecock.be/share/share.pdf" target="_blank">Learn more</a>.
+        </p>
+        <p class="nl nl-blk work-expl work-expl-4">
+          Share is een fictief online platform dat zijn gebruikers de mogelijkheid zou geven om hun gemeenschap en buurt te versterken. De hoofdtoepassing is de mogelijkheid tot het aanvragen en delen van materiaal, entertainment en kennis. Communicatie via de app is gelimiteerd, aangezien mensen in het echte leven weer samenbrengen, en weg van hun scherm, het doel van het platform was. Dit project was het resultaat van een lange periode van onderzoek naar gebruiksvriendelijkheid en user-experience design in onze huidige virtuele samenleving. <a class="work-link underline" href="http://antonlecock.be/share/share.pdf" target="_blank">Leer meer</a>.
+        </p>
+        <img class="work-img work-img-4 work-img-4-a" src="img/share-1.jpg">
+        <img class="work-img work-img-4 small work-img-4-b" src="img/share-2.jpg">
+      </li>
+      <li class="work work-2">
+        <p class="en en-blk work-title work-title-2">
+          Typology Calendar <span class="date">(2014)</span>
+        </p>
+        <p class="nl nl-blk work-title work-title-2">
+          Typology Calendar <span class="date">(2014)</span>
+        </p>
+        <p class="en en-blk work-expl work-expl-2">
+          This calendar displays a systematically generated typology and combines image with the content in an investigating and evolving manner. I wanted to add something more meaningful to my calendar, an extra point of interest. This is why I focused on the phases of the moon, and the apparent height of the moon in the night sky in Baltimore (USA), where I was residing back then.
+        </p>
+        <p class="nl nl-blk work-expl work-expl-2">
+          Deze kalender toont een systematisch gegenereerde typologie en combineert deze afbeeldingen met de inhoud op een onderzoekende, evoluerende wijze. Ik wilde aan mijn kalender een meerwaarde meegeven, een extra interessepunt. Vandaar focuste ik me op de maanfasen, en de schijnbare hoogte van de maan aan de nachtelijke hemel in Baltimore (USA), waar ik op dat moment verbleef.
+        </p>
+        <img class="work-img work-img-2 work-img-2-a" src="img/cal-1.jpg">
+        <img class="work-img work-img-2 work-img-2-b" src="img/cal-2.jpg">
+      </li>
+      <li class="work work-3">
+        <p class="en en-blk work-title work-title-3">
+          Penguin sketches <span class="date">(2014)</span>
+        </p>
+        <p class="nl nl-blk work-title work-title-3">
+          Pinguïnschetsen <span class="date">(2014)</span>
+        </p>
+        <p class="en en-blk work-expl work-expl-3">
+          A big part of my education involved drawing. This series focusses on quick anatomical studies of the (not so) majestic penguin. The goal of the project was to investigate the possibilities and structure of my approach, while sticking to a chosen theme. 
+        </p>
+        <p class="nl nl-blk work-expl work-expl-3">
+          Tekenen maakte een groot deel uit van mijn opleiding. In deze reeks ligt de focus op snelle  studies van de anatomie van de (niet zo) majestueuze pinguïn. Het doel van het project was om onderzoekend te werk te gaan aan de hand van een zelfgekozen onderwerp.
+        </p>
+        <img class="work-img work-img-3 work-img-3-a" src="img/peng-1.jpg">
+        <img class="work-img work-img-3 work-img-3-b" src="img/peng-2.jpg">
+      </li>
+      <li class="work work-5">
+        <p class="en en-blk work-title work-title-5">
+          Collected Magazine <span class="date">(2014)</span>
+        </p>
+        <p class="nl nl-blk work-title work-title-5">
+          Collected Magazine <span class="date">(2014)</span>
+        </p>
+        <p class="en en-blk work-expl work-expl-5">
+          Collected is a fictional magazine about the history and culture of collecting for which I designed the first issue. The design and development of the magazine were an exercise in research and identity. I tried to pursue a truely functional approach in the design. 
+        </p>
+        <p class="nl nl-blk work-expl work-expl-5">
+          (1/2) Collected is een fictief magazine dat gaat over de geschiedenis en brede cultuur van verzamelen. Het ontwerp en het ontwikkelingsproces van het magazine waren een oefening in research en visuele identiteit. Ik probeerde het design te benaderen vanuit een puur functioneel standpunt, zonder veel boe of baa.
+        </p>
+        <img class="work-img work-img-5 work-img-5-a" src="img/col-1.jpg">
+        <img class="work-img work-img-5 work-img-5-b" src="img/col-2.jpg">
+      </li>
+    </ul>
+    <div class="about">
+      <h4 class="en en-blk">
+        ABOUT
+      </h4>
+      <h4 class="nl nl-blk">
+        OVER
+      </h4>
+      <p class="en en-blk">
+        Once a young and ambitious student, now holding a master's degree in Media & Information Design. Currently working as an Information Architect at <a class="underline" href="https://statik.be">Statik</a> and on my own as a freelance graphic designer. Functionality, honesty and an uncoined curiosity remain key factors in what I do. In my spare time you can find me <a class="underline" href="https://www.instagram.com/antonlec/" target="_blank">traveling through a distant country or tending a tiny garden</a> and listening to <a class="underline" href="https://open.spotify.com/user/dbpro" target="_blank">all kinds of music</a>.
+      </p>
+      <p class="nl nl-blk">
+      Ooit een jonge en ambitieuze student, nu de trotse bezitter van een masterdiploma in Media & Information Design. Momenteel werk ik als Information Architect bij <a class="underline" href="https://statik.be">Statik</a> en op mezelf als freelance grafisch ontwerper. Functionaliteit, eerlijkheid en een bevlogen nieuwsgierigheid liggen nog steeds aan de basis van wat ik doe. In mijn vrije tijd vind je me terug <a class="underline" href="https://www.instagram.com/antonlec/" target="_blank">op reis in een ver land of zwoegend in een klein tuintje</a>, terwijl ik luister naar <a class="underline" href="https://open.spotify.com/user/dbpro" target="_blank">allerlei muzieksoorten</a>.
+      </p>
+    </div>
+    <div class="contact">
+      <p class="en en-blk">
+        I could very well be the right guy for your job. Shoot me a message at <a class="underline" href="mailto:info@antonlecock.be">info@antonlecock.be</a>.
+      </p>
+      <p class="nl nl-blk">
+        Ik zou wel eens de juiste persoon voor jouw volgende opdracht kunnen zijn. Stuur me een bericht, naar <a class="underline" href="mailto:info@antonlecock.be">info@antonlecock.be</a>. Niet twijfelen!
+      </p>
+    </div>
+    <div class="copyright">
+      <p>
+        © <span id="year" class="year"></span>, Anton Lecock
+        <br>
+        <span class="en en-inl-blk">This portfolio is always under construction.</span>
+        <span class="nl nl-inl-blk">Dit portfolio is altijd in opbouw.</span>
+      </p>
+    </div>
+  </div>
+  <div class="top-band"></div>
+  <div class="kader" id="kader"></div>
+  <canvas id="canvas" class="transparant" style=" position: fixed; z-index:-7" width="500" height="500"></canvas>
+  <script type="text/javascript">
+  
+  var w = window.innerWidth, h = window.innerHeight;
+  var up = true, gdHidden = true, devHidden = true;
+  var en = true, nl = false;
+
+  var kader = d3.select("#kader");
+  var header = d3.select("#header");
+  var portfolio = d3.select("#portfolio");
+
+  var canvas = document.getElementById("canvas");
+      canvas.setAttribute("width", w);
+      canvas.setAttribute("height", h);
+
+  var ctx = canvas.getContext("2d"),
+      width = canvas.width,
+      height = canvas.height;
+
+  var gd = d3.select("#gd");
+  var dev = d3.select("#dev");
+
+  var number  = 0;
+  var n = 0;
+  var paused = true;
+
+  var nodes,
+    angles = [],
+    angle,
+    newAngle;
+
+  var initialEnlarge = 2000;
+  var enlarge = initialEnlarge; //enlargement
+  var initialSpeed = initialEnlarge * 1000;
+  var speed = initialSpeed; // speed of the animation
+  var initialPointRadius = 10; 
+  var pointRadius = initialPointRadius; // radius of asteroid point
+  var scaler = "big"; // only display labels if "big"
+
+  var downArrowSVG = d3.select("#downarrow")
+                       .style("left", w/2-20 + "px")
+                       .on("click", downArrowClicked);
+
+  var downArrowPolyline = d3.select("#downarrow polyline");
+  var downArrowCircle = d3.select("#downarrow circle");
+
+  var gdSub = d3.select("#gd-subtitle")
+                .on("click", gdClicked);
+  var devSub = d3.select("#dev-subtitle")
+                 .on("click", devClicked);
+
+  var comets = d3.select("#comets")
+                 .on("click", balls)
+                 .transition().delay(2000).duration(500)
+                 .style("opacity", 1);
+
+  var languageButton = d3.select("#lang-switch")
+                           .on("click", langSwitch);
+
+  var toWork = d3.selectAll(".to-work")
+                 .on("click", downArrowClicked);
+
+
+  var date = new Date();
+  var year = date.getFullYear();
+
+  document.getElementById("year").innerHTML = year;
+
+  function langSwitch() {
+    if (en) {
+      document.getElementById("lang-switch").innerHTML = "EN";
+      d3.selectAll(".en").style("display", "none");
+      d3.selectAll(".nl-blk").style("display", "block");
+      d3.selectAll(".nl-inl-blk").style("display", "inline-block");
+      en = false;
+    } else {
+      document.getElementById("lang-switch").innerHTML = "NL";
+      d3.selectAll(".nl").style("display", "none");
+      d3.selectAll(".en-blk").style("display", "block");
+      d3.selectAll(".en-inl-blk").style("display", "inline-block");
+      en = true;
+    }
+  }
+
+  function downArrowClicked() {
+      if (up) {
+        downArrowDown();
+        gdHide();
+        devHide();
+      } else {
+        downArrowUp();
+      }
+  }
+
+  function downArrowDown() {
+      kader.transition().delay(250).duration(500)
+           .style("border-bottom-width", h-10 + "px");
+
+      downArrowSVG.transition().delay(250).duration(500)
+                  .style("bottom", h-80 + "px");
+
+      downArrowSVG.transition().delay(750).duration(500)
+                  .style("left", w-80 + "px");
+
+      downArrowPolyline.transition().delay(1250).duration(500)
+                       .attr("points", "12,24 20,16 28,24")
+                       
+      downArrowPolyline.style("stroke", "#DEDEDE");
+      downArrowCircle.style("stroke", "#DEDEDE");
+
+      header.transition().delay(250).duration(500)
+            .style("opacity", 0);
+
+      languageButton.transition().delay(250).duration(250)
+            .style("color", "#DEDEDE")
+            .style("border-bottom", "1px solid #DEDEDE");
+
+      setTimeout(function() {
+        header.style("display", "none");
+        portfolioShow();
+      }, 500);
+
+      if (!paused) {
+        balls();
+      }
+
+      up = false;
+  }
+
+  function downArrowUp() {
+      kader.transition().delay(250).duration(500)
+           .style("border-bottom-width", "10px");
+
+      downArrowSVG.transition().delay(250).duration(500)
+                  .style("bottom", "40px");
+
+      downArrowSVG.transition().delay(750).duration(500)
+                  .style("left", w/2-20 + "px");
+
+      downArrowPolyline.transition().delay(1250).duration(500)
+                       .attr("points", "12,17 20,25 28,17")
+
+      downArrowPolyline.style("stroke", "#404040");
+      downArrowCircle.style("stroke", "#404040");
+
+
+      header.transition().delay(250).duration(500)
+            .style("opacity", 1);
+
+      languageButton.transition().delay(20).duration(250)
+            .style("color", "#404040")
+            .style("border-bottom", "1px solid #404040");
+
+      header.style("display", "block");
+      portfolioHide();
+
+      up = true;     
+
+  }
+
+  function gdClicked() {
+      if (gdHidden) {
+        devHide();
+        gdShow();
+      } else {
+        gdHide();
+      }
+  }
+
+  function devClicked() {
+      if (devHidden) {
+        gdHide();
+        devShow();
+      } else {
+        devHide();
+      }
+  }
+
+  function gdShow () {
+      gd.style("top", "57.5%")
+        .transition().delay(250).duration(500)
+        .style("opacity", 1)
+        .style("top", "57%")
+        .style("display", "block");
+
+      gdHidden = false;
+  }
+
+  function gdHide () {
+      gd.transition().delay(0).duration(250)
+        .style("opacity", 0)
+        
+      setTimeout(function() {
+        gd.style("display", "none");
+      }, 500);
+        
+      gdHidden = true;
+  }
+
+  function devShow () {
+      dev.style("top", "57.5%")
+         .transition().delay(250).duration(500)
+         .style("opacity", 1)
+         .style("top", "57%")
+         .style("display", "block");
+
+      devHidden = false;
+  }
+
+  function devHide () {
+      dev.transition().delay(0).duration(250)
+         .style("opacity", 0)
+        
+      setTimeout(function() {
+        dev.style("display", "none");
+      }, 500);
+        
+      devHidden = true;
+  }
+
+  function portfolioShow() {
+    portfolio.transition().delay(1000).duration(500)
+             .style("opacity", 1)
+             .style("display", "block")
+  }
+
+  function portfolioHide() {
+    portfolio.transition().delay(0).duration(500)
+             .style("opacity", 0)
+             
+    setTimeout(function() { 
+      portfolio.style("display", "none");
+    }, 500);
+  }
+
+
+  function balls() {
+    if (!gdHidden) {
+      gdHide();
+    } else if (!devHidden) {
+      devHide();
+    };
+
+    if (paused) {
+      d3.select("canvas").transition().delay(250).duration(500)
+                         .style("opacity", 1);
+      setTimeout(function() {
+        paused = false;
+      }, 500);
+
+    } else {
+      d3.select("canvas").transition().delay(250).duration(500)
+                         .style("opacity", 0);
+      paused = true;
+    }
+  }
+
+  var colorOne = d3.rgb("white"), colorTwo = d3.rgb("#DEDEDE");
+
+  var cScale = d3.scale.linear()
+        .domain([0, 1])
+        .range([colorOne, colorTwo]); 
+
+  var rScale = d3.scale.linear()
+                         .domain([0.00000000001, 1, 10000])
+                         .range([0.5, 1, 10000]);
+
+  function log (logme) {
+    return Math.pow(10, logme);
+  };
+
+  var detachedContainer = document.createElement("custom");
+  var dataContainer = d3.select(detachedContainer);
+
+  // ASTEROID DATA 
+  var asteroiddata = d3.csv("data/keplerconfirmed3.csv", function(error, rows) {
+    if (error) throw error;
+
+    var x, y, r, v, P, E, F;
+
+    
+    // create the ellipses on which the asteroids will be projected
+    // use path instead of ellipse, because otherwise next step won't work
+    var dataBinding = dataContainer.selectAll( "node" )
+      .data( rows )
+      .enter()
+      .append( "path" )
+      // .attr("id", function(d, i){return "node-" + i})
+      // .attr("class", function(d, i){return "node " + "node-" + i})
+      // .attr("pdes", function(d, i){return d.name})
+      // .attr("a", function(d, i) {return d.a})
+      // .attr("M", function(d, i) {return d.M})
+      // .attr("per", function (d, i) {return d.per})
+      // .attr("e", function(d, i) {return d.e})
+      // .attr("stroke", function(d, i){
+      //   return cScale(d.e);
+      // })
+      .attr("id", function(d, i){return "node-" + i})
+      .attr("realid", function(d, i){return d.id})
+      .attr("class", function(d, i){return "node " + "node-" + i})
+      .attr("pdes", function(d, i){return d.pl_hostname + " " + d.pl_letter})
+      .attr("a", function(d, i) {return d.pl_orbsmax})
+      .attr("M", function(d, i) {return Math.random()*360})
+      // .attr("W", function(d, i) {return d.w})
+      .attr("per", function (d, i) {return d.pl_orbper / 365.25})
+      .attr("e", function(d, i) {return d.pl_orbeccen})
+      .attr("rad", function(d, i) {return d.pl_radj})
+      .attr("radstar", function(d, i) {return d.st_rad})
+      // .attr("mass", function(d, i) {return cScale(d.pl_bmassj)})
+      .attr("solar", function(d, i) {return d.pl_nnotes})
+      .attr("stroke", function(d, i){return cScale(d.pl_orbeccen)})
+      // .attr("inclination", function(d, i) {return d.pl_orbincl})
+
+    var getal = 1;          
+    var resolution = 10;
+    var oneTime = true;
+    var t = 0;
+
+    nodes = dataContainer.selectAll(".node"); // store all nodes in array
+    nodesAmount = nodes.size(); // get length of array, the total amount of nodes
+
+    dataBinding.each(function(d, i) {
+      var node = d3.select(this);
+      angles.push(Math.PI/180*(+node.attr("M"))) // initial angle of the asteroid on its orbit
+      // angles.push(0);
+    });
+    console.log(angles);
+    // for (i = 0; i < nodesAmount; i++) {
+    //   angles.push(d.M[i]); 
+    // }  
+
+    // Variables for storing previous positions
+    var oldPoints = [];
+    var pointInterval = 5;
+    var oldTime = 0;
+    var periodTime = false;
+
+    d3.timer( function() {
+      if (!paused) {
+        step()
+      }
+    });
+
+    step();
+
+    function step() {
+
+      var gradient=ctx.createRadialGradient(w/2,(h/3)*2.5,0,w/2,(h/3)*2.5,enlarge/2);
+      gradient.addColorStop(0,"#707070");
+      gradient.addColorStop(1,"#404040");
+
+      // "clear" canvas
+      ctx.fillStyle = gradient;
+      ctx.strokeStyle = "none"
+      ctx.fillRect(0,0,w,h);
+      
+      ctx.fillStyle = "#788fd4";
+      ctx.beginPath();
+      ctx.arc(w/2, (h/3)*2, pointRadius, 0, 2 * Math.PI);
+      ctx.fill();
+
+      drawOrbit();
+
+    }
+
+
+    function drawOrbit() {
+        
+        // console.log( getal++ );
+
+        dataBinding.each(function(d, i) {
+
+          var node = d3.select(this);
+
+          var M = node.attr("M");
+          var a = node.attr("a");
+          var e = node.attr("e");
+          var per = node.attr("per") * speed;
+          var rad = node.attr("radstar")*10 / node.attr("rad");
+
+          // compute other values
+          var b = (a * (Math.sqrt(1-e*e)));
+          var F = (Math.sqrt(a * a - b * b));
+
+          // enlarge values of length
+          a = a * enlarge;
+          b = b * enlarge;
+          F = F * enlarge;
+
+          // Initial position of point (angle = 0)
+          var x = a;
+          var y = 0;
+
+          t++;
+
+          var r = a + F;
+
+          angle = angles[0];
+
+          var k = 360 * a * b / (per * resolution);
+        
+          for (var j = 0; j < resolution; j++) {
+              angle += k / (r * r);
+              r = a * (1 - e * e) / (1 - e * Math.cos(angle));   
+          }
+
+          // angle += (360 * a * b / (r * r * per)); 
+          // r = a * (1 - e * e) / (1 - e * Math.cos(angle));
+
+          // if (angle > 360) {
+          //   angle -= 360;
+          //   if (oldTime) {
+          //       periodTime = t - oldTime;
+          //   }
+          //   oldTime = t;
+          // }
+
+          var newX = r * Math.cos(angle);
+          var newY = r * Math.sin(angle);
+
+          x = newX;
+          y = newY;
+
+          getal = getal + 1;
+
+          ctx.save();
+          
+          ctx.translate(w/2, (h/3)*2);
+
+          var rotation = +M + (((360-getal)/+per));
+          ctx.rotate(M);
+          // ctx.rotate(rotation);
+  
+          // add orbit paths
+          // ctx.fillStyle = "none";
+          // ctx.strokeStyle = node.attr("stroke");
+          // ctx.lineWidth = .2;
+          // ctx.beginPath();
+          // ctx.ellipse(F, 0, a, b, 0, 0, 2 * Math.PI, true);
+          // ctx.stroke();
+          // ctx.closePath();
+
+          // add orbiting points
+          ctx.fillStyle = node.attr("stroke");
+          ctx.beginPath();
+          ctx.arc(x, y, rScale(pointRadius / rad), 0, 2 * Math.PI);
+          ctx.fill(); 
+
+          ctx.restore();
+
+
+          newAngle = angle;
+          angles.splice(0, 1);
+          angles.push(newAngle);          
+        });
+      }
+  
+  });
+  
+
+  // var zoom = d3.behavior.zoom()
+  //   .translate([0, 0])
+  //   .scale(1)
+  //   .scaleExtent([.4, 4])
+  //   .on("zoom", zoomed);
+
+  // d3.select("body").call(zoom);
+
+  function zoomed() {
+
+    console.log(d3.event.scale);
+    speed = initialSpeed * d3.event.scale;
+    enlarge = initialEnlarge * d3.event.scale;
+    if (d3.event.scale < 1 && pointRadius >= 0.5) { 
+      pointRadius = initialPointRadius * (d3.event.scale);
+    } else if (d3.event.scale > 1){
+      pointRadius = initialPointRadius
+    } else if (d3.event.scale < 1 && pointRadius === 0.05) {
+      pointRadius += .01
+    };
+    if (d3.event.scale < .1) {
+      scaler = "tiny";
+    } else {
+      scaler = "big";
+    }
+    
+  }
+
+  </script>
+</body>
+</html>
